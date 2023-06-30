@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Using until asa loop
+COUNT=0
+until [ $count -eq 10 ]
+do
+  echo "Best School"
+  ((count++))
+done
