@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Using whileto print the time in 12 hours
+count=0
+while [ $count -le 12 ]
+do
+  echo "Hour: $count"
+  count1=0
+  while [ $count1 -le 59 ]
+  do
+  echo "$count1"
+  ((count1++))
+  done
+((count++))
+done
