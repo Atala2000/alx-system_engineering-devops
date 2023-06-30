@@ -4,7 +4,7 @@ count=0
 while [ $count -le 12 ]
 do
   echo "Hour: $count"
-  count1=0
+  count1=1
   while [ $count1 -le 59 ]
   do
   echo "$count1"
