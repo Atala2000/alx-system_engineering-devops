@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#Display words with bash
+ps -auxf |grep  bash
