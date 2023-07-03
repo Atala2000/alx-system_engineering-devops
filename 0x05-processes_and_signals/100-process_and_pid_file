@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-Display infinity and delete file
+#Display infinity and delete file
 
 echo "$$" > /var/run/myscript.pid
 termfunc() {
