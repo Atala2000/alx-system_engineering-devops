@@ -1,1 +1,1 @@
-ssh -i ~/.ssh/school ubuntu@54.152.126.111
+ssh -i ubuntu@54.152.126.111 -i ~/.ssh/school 
