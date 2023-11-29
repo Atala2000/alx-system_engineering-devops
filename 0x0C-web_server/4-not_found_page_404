@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# Configure nginx server
+
+sudo apt-get update
+
+sudo apt-get -y install nginx
+
+sudo mkdir -p /var/www/html
+
+sudo chown -R "$USER":"$USER" /var/www/html
+
+echo "Ceci n'est pas une page" > /var/www/html/custom_404.html
+
+sudo printf %s "server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        root /var/www/html;
+
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name _;
+
+		error_page 404 /custom_404.html;
+
+        location = /custom_404.html {
+			internal;
+		}
+	}" > /etc/nginx/sites-available/custom_404.html
+
+sudo service nginx restart
