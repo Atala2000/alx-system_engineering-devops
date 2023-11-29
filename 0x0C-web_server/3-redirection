@@ -1,4 +1,4 @@
-#!/urs/bin/env bash
+#!/usr/bin/env bash
 # Configures nginx server
 
 sudo apt-get update
