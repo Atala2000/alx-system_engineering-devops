@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
-
-# Link the default Nginx site configuration
+#Linking sites
 ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-
-# Start the Nginx service
 service nginx start
-
-# Remove the Nginx PID file
 rm /run/nginx.pid
