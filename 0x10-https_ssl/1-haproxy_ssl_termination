@@ -1,0 +1,16 @@
+frontend http
+        bind *:80
+        bind *:443 ssl crt /etc/letsencrypt/live/www.omeno.tech/www.omeno.tech.pem
+        redirect scheme https code 301 if !{ ssl_fc }
+        mode http
+        timeout client 30s
+        default_backend web_backend
+
+backend web_backend
+        mode http
+        balance roundrobin
+        server 230380-web-01 54.152.126.111:80 check
+        server 230380-web-02 100.26.156.135:80 check
+        timeout server 30s
+        timeout connect 30s
+        timeout client 30s
