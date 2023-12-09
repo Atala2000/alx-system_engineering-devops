@@ -1,5 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Function to get and display information about a subdomain
+
 subdomain_info() {
     result=$(dig +short "$2.$1" | grep '^[0-9]')
     if [ -n "$result" ]; then
