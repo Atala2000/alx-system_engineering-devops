@@ -4,8 +4,7 @@
 ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 
 # Start the Nginx service
-sudo service nginx start
+service nginx start
 
-# Remove the Nginx PID file (assuming you meant /run/nginx.pid)
+# Remove the Nginx PID file
 rm /run/nginx.pid
-d
