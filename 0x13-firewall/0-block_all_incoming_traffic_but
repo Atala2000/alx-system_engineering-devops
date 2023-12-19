@@ -1,6 +1,3 @@
-#!/usr/bin/env bash
-# Installing ufw and enabling port 22 and 80
-
 sudo apt-get -y update
 sudo apt-get -y install ufw
 sudo ufw disable
