@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
 Module that uses REST API to display data
+Uses command line arguments to acces user data
 """
 import requests
 import sys
