@@ -6,28 +6,28 @@ Uses command line arguments to acces user data
 import requests
 import sys
 
+
 if __name__ == "__main__":
-    url = "https://jsonplaceholder.typicode.com/"
+    employee_Id = sys.argv[1]
 
-    employee_resources = requests.get(url + "users/" + sys.argv[1])
-    employee_tasks = requests.get(url + "todos")
-    employee_tasks = employee_tasks.json()
+    url = 'https://jsonplaceholder.typicode.com/users/{}'.format(employee_Id)
+    response = requests.get(url)
+    name = response.json().get('name')
 
-    employee_name = employee_resources.json().get("name")
-    completed_tasks = 0
-    total_tasks = 0
-    task_title = []
+    url = 'https://jsonplaceholder.typicode.com/users/{}/todos'.\
+        format(employee_Id)
+    response = requests.get(url)
+    tasks = response.json()
+    done = 0
+    completed_tasks = []
 
-    for x in employee_tasks:
-        if x.get("userId") == int(sys.argv[1]):
-            total_tasks += 1
-            if x.get("completed"):
-                completed_tasks += 1
-                task_title.append(x.get("title"))
+    for task in tasks:
+        if task.get('completed'):
+            completed_tasks.append(task)
+            done += 1
 
-    print(
-        f"""Employee {employee_name} is done with
-    tasks({completed_tasks}/{total_tasks}): """
-    )
-    for x in task_title:
-        print(f"\t{x}")
+    print("Employee {} is done with tasks({}/{}):".
+          format(name, done, len(tasks)))
+
+    for task in completed_tasks:
+        print('\t {}'.format(task.get('title')))
