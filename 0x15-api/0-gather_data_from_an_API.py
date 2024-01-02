@@ -1,12 +1,13 @@
 #!/usr/bin/python3
-"""Module that uses REST API to display data
+"""
+Module that uses REST API to display data
 """
 import requests
-from sys import argv
+import sys
 
 url = "https://jsonplaceholder.typicode.com/"
 
-employee_resources = requests.get(url + "users/" + argv[1])
+employee_resources = requests.get(url + "users/" + sys.argv[1])
 employee_tasks = requests.get(url + "todos")
 employee_tasks = employee_tasks.json()
 
@@ -16,7 +17,7 @@ total_tasks = 0
 task_title = []
 
 for x in employee_tasks:
-    if x.get("userId") == int(argv[1]):
+    if x.get("userId") == int(sys.argv[1]):
         total_tasks += 1
         if x.get("completed"):
             completed_tasks += 1
