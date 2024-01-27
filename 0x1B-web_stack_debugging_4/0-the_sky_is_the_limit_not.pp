@@ -1,4 +1,4 @@
-#changing nginx server
+#changing of nginx server
 
 exec { 'changing ULIMIT':
 command => '/bin/sed -i "s/15/4096/" /etc/default/nginx',
