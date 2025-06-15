@@ -1,0 +1,1 @@
+**Shell Expansion** is a Python library that provides a simple way to expand shell-like expressions into lists of strings. It supports various shell features such as brace expansion,
